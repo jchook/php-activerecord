@@ -845,7 +845,8 @@ class Model
 
 		if ($this->is_dirty())
 		{
-			$pk = $this->values_for_pk();
+			//$pk = $this->values_for_pk();
+			$pk = $this->get_values_for_pk();
 
 			if (empty($pk))
 				throw new ActiveRecordException("Cannot update, no primary key defined for: " . get_called_class());
@@ -1007,6 +1008,17 @@ class Model
 	public function values_for_pk()
 	{
 		return $this->values_for(static::table()->pk);
+	}
+	
+	/**
+	 * Similar to values_for_pk() except these are not run
+	 * through get_{varname} filters, etc.
+	 * 
+	 * @return array
+	 */
+	public function get_values_for_pk()
+	{
+		return $this->get_values_for(static::table()->pk);
 	}
 
 	/**
