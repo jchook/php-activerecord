@@ -291,8 +291,10 @@ abstract class Connection
 	 */
 	public function query($sql, &$values=array())
 	{
-		if ($this->logging)
+		if ($this->logging) {
 			$this->logger->log($sql);
+			$this->logger->log(json_encode($values));
+		}
 
 		$this->last_query = $sql;
 
