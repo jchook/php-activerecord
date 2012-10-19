@@ -4,7 +4,7 @@ CREATE TABLE authors(
 	name VARCHAR  (25) NOT NULL DEFAULT default_name, -- don't touch those spaces
 	updated_at datetime,
 	created_at datetime,
-	some_date date,
+	some_Date date,
 	some_time time,
 	some_text text,
 	encrypted_password varchar(50),
@@ -40,7 +40,7 @@ CREATE TABLE events (
 );
 
 CREATE TABLE hosts(
-	id INTEGER NOT NULL PRIMARY KEY,
+	id INT NOT NULL PRIMARY KEY,
 	name VARCHAR(25)
 );
 
